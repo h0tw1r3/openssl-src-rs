@@ -199,6 +199,10 @@ impl Build {
             }
         }
 
+        if cfg!(feature = "fips") {
+            configure.arg("enable-fips");
+        }
+
         if cfg!(not(feature = "legacy")) {
             configure.arg("no-legacy");
         }
